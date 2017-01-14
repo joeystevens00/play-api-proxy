@@ -2,7 +2,9 @@
 api-proxy is a RESTful api that acts as a proxy 
 
 ## Install
-```git clone https://github.com/joeystevens00/play-api-proxy
+
+```
+git clone https://github.com/joeystevens00/play-api-proxy
 cd play-api-proxy
 bin/activator run
 ```
