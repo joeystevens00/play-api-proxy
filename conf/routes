@@ -14,4 +14,4 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 POST		/			controllers.Application.proxifyApi
 GET		/			controllers.Application.proxifyApi
-
+GET		/getHeaders		controllers.getHeaders.getHeaders
