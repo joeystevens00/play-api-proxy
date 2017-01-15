@@ -30,6 +30,6 @@ Custom headers are forwarded too
 `  curl -H "MyCustomHeader: Test1" -H "MyCustomerHeader2: Test2" -H "MyCustomHeader3: Test3" -H "api-forward-url: https://wtfismyip.com/headers" https://play-api-proxy.herokuapp.com/ `
 
 ## Support
-Current support is GET and limited POST  (json)
+Current support is GET and POST
 
 
