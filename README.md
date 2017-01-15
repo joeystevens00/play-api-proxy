@@ -1,5 +1,6 @@
 ## api-proxy
-api-proxy is a RESTful api that acts as a proxy 
+api-proxy is a RESTful api that acts as a proxy.
+ 
 https://play-api-proxy.herokuapp.com/
 
 ## Install
@@ -32,4 +33,4 @@ Custom headers are forwarded too
 ## Support
 Current support is GET and POST
 
-
+Not supported: File transfer
