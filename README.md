@@ -27,7 +27,7 @@ POST with json using header
 
 POST with json using url param
 
-` curl -X POST -H "Content-Type: application/json" -d '{"title": "foo", "body": "bar", "userId": }' https://play-api-proxy.herokuapp.com?api-forward-url=http://jsonplaceholder.typicode.com/posts `
+` curl -X POST -H "Content-Type: application/json" -d '{"title": "foo", "body": "bar", "userId": 1}' https://play-api-proxy.herokuapp.com?api-forward-url=http://jsonplaceholder.typicode.com/posts `
 
 ## Support
 Current support is GET and limited POST  (json)
