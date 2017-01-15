@@ -24,7 +24,7 @@ GET using url param
 
 POST with json using header
 
-` curl -X POST -H "Content-Type: application/json" -H "api-forward-url: http://jsonplaceholder.typicode.com/posts" -d '{"title": "foo", "body": "bar", "userId": 1}' https://play-api-proxy.herokuapp.com/ `
+` curl -X POST -H "Content-Type: application/json" -H "api-forward-url: https://play-api-proxy.herokuapp.com/jsonPostTest" -d '{"title": "foo", "body": "bar", "userId": 1}' https://play-api-proxy.herokuapp.com/ `
 
 Custom headers are forwarded too
 
