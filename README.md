@@ -41,6 +41,6 @@ POST            /                     controllers.Application.proxifyApi
 GET             /                     controllers.Application.proxifyApi
 GET             /getHeaders             controllers.Application.getHeaders
 ```
-proxifyApi - Forwards requests to api-forward-url and returns response
+proxifyApi - Forwards requests in the api-forward-url header or url paramater and returns response
 
 getHeaders - Returns request headers as json
