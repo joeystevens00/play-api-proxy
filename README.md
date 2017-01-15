@@ -36,12 +36,11 @@ Current support is GET and POST
 Not supported: File transfer
 
 ## Endpoints
+```
 POST            /                     controllers.Application.proxifyApi
-
 GET             /                     controllers.Application.proxifyApi
-
 GET             /getHeaders             controllers.Application.getHeaders
-
+```
 proxifyApi - Forwards requests to api-forward-url and returns response
 
 getHeaders - Returns request headers as json
