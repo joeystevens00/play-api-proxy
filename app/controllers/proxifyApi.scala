@@ -13,10 +13,12 @@ class Application extends Controller
     	case None    => true
     	case Some(s) => s.trim.isEmpty
   	}
+
  	def proxifyApi=  Action { request =>  
  		var requestUrl: String = request.headers.get("api-forward-url").getOrElse("")
  		var contentType: String = request.headers.get("Content-Type").getOrElse("")
  		var requestUrlParam: String = request.getQueryString("api-forward-url").getOrElse("")
+ 		var completeHeaders: Set[String] = Set()
  		if (isBlank(Option(requestUrl)) && isBlank(Option(requestUrlParam))) 
  		{ // If the user didn't give us api-forward-url
  			var error: String ="Incorrect usage. Pass your request URL as api-forward-url in the headers or as a url paramater"
@@ -39,8 +41,13 @@ class Application extends Controller
     				//val parsedperson = json.as[Person]
   		 			System.out.println("Received JSON Request To: " + requestUrl)
  		 			var result = Http(requestUrl).postData(jsonString)
- 		 				.header("Content-Type", contentType).asString
- 		 			Ok(result.body)
+ 					for (e <- request.headers.keys)  //Process headers
+ 					{
+ 		 				var key: String = e
+ 		 				var value: String = request.headers.get(e).getOrElse("")
+ 		 				result=result.header(key, value) //Attach all headers to the request
+					} 
+					Ok(result.asString.body)
  		 		}
  		 		catch 
  		 		{ 
@@ -52,8 +59,14 @@ class Application extends Controller
  		 	{
 				//HANDLING NON JSON REQUESTS
 				System.out.println("Received NON-JSON Request To: " + requestUrl)
-				var result = Http(requestUrl).asString
- 				Ok(result.body)
+				var result = Http(requestUrl)
+ 				for (e <- request.headers.keys) 
+		 		{
+ 				 	var key: String = e
+ 				 	var value: String = request.headers.get(e).getOrElse("")
+ 		 			result=result.header(key, value)
+				}
+ 				Ok(result.asString.body)
 
  			}
 		}		
