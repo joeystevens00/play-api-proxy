@@ -13,8 +13,8 @@ class getHeaders extends Application
 		var passedHeaders: String = "{"
 		for (e <- request.headers.keys) 
 		 	{
-				var key: String = e
  				var value: String = request.headers.get(e).getOrElse("")
+ 				var key: String = e.replaceAll("-", "_")
  		 		passedHeaders += ("\"" + key + "\": \""  +  value + "\",")
 			}
 			passedHeaders += "}"
