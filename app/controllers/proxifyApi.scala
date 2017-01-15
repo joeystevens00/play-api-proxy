@@ -8,22 +8,27 @@ import scalaj.http.Http
 
 class Application extends Controller 
 {
-	def isBlank( input : Option[String]) : Boolean = 
-  		input match {
+	def isBlank( input : Option[String]) : Boolean = input match 
+  	{
     	case None    => true
     	case Some(s) => s.trim.isEmpty
   	}
  	def proxifyApi=  Action { request =>  
  		var requestUrl: String = request.headers.get("api-forward-url").getOrElse("")
  		var contentType: String = request.headers.get("Content-Type").getOrElse("")
- 		if (isBlank(Option(requestUrl))) 
+ 		var requestUrlParam: String = request.getQueryString("api-forward-url").getOrElse("")
+ 		if (isBlank(Option(requestUrl)) && isBlank(Option(requestUrlParam))) 
  		{ // If the user didn't give us api-forward-url
- 			var error: String ="Incorrect usage. Pass your request URL as api-forward-url in the headers"
+ 			var error: String ="Incorrect usage. Pass your request URL as api-forward-url in the headers or as a url paramater"
  			System.out.println(error)
  			BadRequest(error)
  		}
  		else 
  		{
+ 			if (isBlank(Option(requestUrl))) {
+ 				//If the User passed api-forward-url as a URL paramater
+ 				requestUrl=requestUrlParam
+ 			}
 
  			if (contentType.toUpperCase() contains "JSON") 
  			{	//HANDLING JSON REQUESTS
