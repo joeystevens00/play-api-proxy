@@ -28,9 +28,17 @@ POST with json using header
 
 Custom headers are forwarded too
 
-`  curl -H "MyCustomHeader: Test1" -H "MyCustomerHeader2: Test2" -H "MyCustomHeader3: Test3" -H "api-forward-url: https://wtfismyip.com/headers" https://play-api-proxy.herokuapp.com/ `
+` curl -H "MyCustomHeader: Test1" -H "MyCustomerHeader2: Test2" -H "MyCustomHeader3: Test3" -H "api-forward-url: https://play-api-proxy.herokuapp.com/getHeaders" https://play-api-proxy.herokuapp.com/ `
 
 ## Support
 Current support is GET and POST
 
 Not supported: File transfer
+
+## Endpoints
+POST            /                     controllers.Application.proxifyApi
+GET             /                     controllers.Application.proxifyApi
+GET             /getHeaders             controllers.Application.getHeaders
+
+proxifyApi - Forwards requests to api-forward-url and returns response
+getHeaders - Returns request headers as json
