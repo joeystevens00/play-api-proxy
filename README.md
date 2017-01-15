@@ -12,9 +12,11 @@ bin/activator run
 
 
 ## Example Usage
-` curl -H "api-forward-url: https://google.com" localhost:9000/proxifyApi `
 
-` curl -X POST -H "Content-Type: application/json" -H "api-forward-url: http://jsonplaceholder.typicode.com/posts" -d '{"title": "foo", "body": "bar", "userId": 1}' localhost:9000/proxifyApi `
+` curl -H "api-forward-url: https://google.com" https://play-api-proxy.herokuapp.com/ `
+
+
+` curl -X POST -H "Content-Type: application/json" -H "api-forward-url: http://jsonplaceholder.typicode.com/posts" -d '{"title": "foo", "body": "bar", "userId": 1}' https://play-api-proxy.herokuapp.com/ `
 
 ## Support
 Current support is GET and limited POST  (json)
