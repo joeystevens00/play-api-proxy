@@ -17,15 +17,15 @@ GET using header
 
 ` curl -H "api-forward-url: http://ipecho.net/plain" https://play-api-proxy.herokuapp.com/ `
 
-GET using URL Param
+GET using url param
 
 ` curl https://play-api-proxy.herokuapp.com?api-forward-url=http://ipecho.net/plain `
 
-POST with Json using header
+POST with json using header
 
 ` curl -X POST -H "Content-Type: application/json" -H "api-forward-url: http://jsonplaceholder.typicode.com/posts" -d '{"title": "foo", "body": "bar", "userId": 1}' https://play-api-proxy.herokuapp.com/ `
 
-POST with Json using URL Param
+POST with json using url param
 
 ` curl -X POST -H "Content-Type: application/json" -d '{"title": "foo", "body": "bar", "userId": }' https://play-api-proxy.herokuapp.com?api-forward-url=http://jsonplaceholder.typicode.com/posts `
 
